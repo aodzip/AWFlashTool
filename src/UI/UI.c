@@ -72,6 +72,7 @@ void UI_create()
     lv_obj_set_event_cb(btn_rootfs, btn_rootfs_callback);
 
     lv_label_set_text(label_info, "Waiting...");
+    printf("%s\n", "Waiting...");
 
     lv_obj_t *label_tmp;
     label_tmp = lv_label_create(btn_fdisk, NULL);
@@ -134,6 +135,7 @@ static void te_finished_callback(terminalemulator_t *instance, bool fc)
         default:
             enable_auto = false;
             lv_label_set_text(label_info, "Done");
+            printf("%s\n", "Done");
         }
     }
 }
@@ -143,6 +145,7 @@ static void win_main_callback(lv_obj_t *obj, lv_event_t event)
     if (event == LV_EVENT_CLICKED)
     {
         lv_label_set_text(label_info, "Manual Mode");
+        printf("%s\n", "Manual Mode");
         if (task_countdown_auto)
         {
             lv_task_del(task_countdown_auto);
